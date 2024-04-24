@@ -1,12 +1,12 @@
-import PantallaPrueba from "./views/PantallaPrueba";
-import "./App.css";
+import Home from "./views/Home";
+import "./index.css";
 import  ApiProvider  from "./context/ApiContext";
 
 function App() {
   return (
     <>
       <ApiProvider>
-        <PantallaPrueba />
+        <Home />
       </ApiProvider>
     </>
   );

@@ -3,7 +3,7 @@ import { ApiContext } from '../context/ApiContext';
 import NavBar from '../components/navBar/NavBar';
 import Banner from '../components/banner/Banner'
 
-const PantallaPrueba = () => {
+const Home = () => {
   const pizzas = useContext(ApiContext);
 
   return (
@@ -25,4 +25,4 @@ const PantallaPrueba = () => {
   );
 }
 
-export default PantallaPrueba;
+export default Home;
