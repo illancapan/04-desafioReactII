@@ -1,16 +1,16 @@
-import VerMasButton from '../verMasBoton/VerMasBoton';
-import AgregarBoton from '..//agregarBoton/AgregarBoton';
-
-
+import React, { useContext } from "react";
+import { CarroContext } from "../../context/CarroContext";
+import VerMasButton from "../verMasBoton/VerMasBoton";
+import AgregarBoton from "..//agregarBoton/AgregarBoton";
 
 const Card = ({ pizza }) => {
-  
-  
-  const agregarCarro=()=> {
-    console.log("agrego al carro");
-  }
-  
-  
+  const { agregarAlCarro } = useContext(CarroContext);
+
+  const agregarCarro = (pizza) => {
+    agregarAlCarro(pizza);
+    console.log("Pizza agregada al carro:", pizza);
+  };
+
   return (
     <>
       <div className="row">
@@ -20,7 +20,7 @@ const Card = ({ pizza }) => {
               {/* imagen para el card */}
               <img src={pizza.img} className="card-img-top" alt={pizza.name} />
               <div className="card-body">
-                {/* Convertir la primera letra en mayúscula */}
+                {/*primera letra en mayuscula */}
                 <h5 className="card-title">
                   {pizza.name.charAt(0).toUpperCase() + pizza.name.slice(1)}
                 </h5>
@@ -31,10 +31,10 @@ const Card = ({ pizza }) => {
                     <li key={i}>{ingredient}</li>
                   ))}
                 </ul>
-                {/* Precio */}
+                {/* precio */}
                 <p className="card-text">Precio: ${pizza.price}</p>
                 <VerMasButton pizzaName={pizza.name} />
-                <AgregarBoton onClick={agregarCarro} />
+                <AgregarBoton onClick={() => agregarCarro(pizza)} />
               </div>
             </div>
           </div>
