@@ -1,12 +1,15 @@
+import { Link } from 'react-router-dom';
+
+
 function NavBar() {
   return (
     <>
       <div className="mx-4">
         <nav className="navbar bg-body-tertiary">
           <div className="container-fluid">
-            <a className="navbar-brand ps-4" href="#">
+            <Link to={`/`} className="navbar-brand ps-4">
             Pizzeria Mamma Mia!
-            </a>
+            </Link>
             <a className="navbar-brand pe-4" href="#">
             $134.965
             </a>

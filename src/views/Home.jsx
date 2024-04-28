@@ -1,28 +1,28 @@
-import { useContext } from 'react';
-import { ApiContext } from '../context/ApiContext';
-import NavBar from '../components/navBar/NavBar';
-import Banner from '../components/banner/Banner'
+import { useContext } from "react";
+
+import { ApiContext } from "../context/ApiContext";
+import NavBar from "../components/navBar/NavBar";
+import Banner from "../components/banner/Banner";
+import Card from "../components/card/Card";
 
 const Home = () => {
-  const pizzas = useContext(ApiContext);
+  const { pizza } = useContext(ApiContext);
+
+  const filtrarPizza = pizza.filter((pizza) => {
+    const pizzaName = pizza.name.toLowerCase().trim();
+    const excludedPizzas = ["bacon", "pollo picante"].map((name) =>
+      name.toLowerCase()
+    );
+    return !excludedPizzas.includes(pizzaName);
+  });
 
   return (
     <>
-<NavBar/>
-<Banner />
-        
-      <h1>Pantalla Prueba</h1>
-      <div>
-        {pizzas.map((pizza, index) => (
-          <div key={index}>
-            <h2>{pizza.name}</h2>
-            <p>{pizza.desc}</p>
-            <p>Precio: ${pizza.price}</p>
-          </div>
-        ))}
-      </div>
+      <NavBar />
+      <Banner />
+      <Card pizza={filtrarPizza}/>
     </>
   );
-}
+};
 
 export default Home;

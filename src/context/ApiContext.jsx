@@ -4,13 +4,12 @@ import pizzasData from "../data/pizzas.json";
 export const ApiContext = createContext();
 
 const ApiProvider = ({ children }) => {
-  const [pizzas, setPizzas] = useState([]);
+  const [pizza, setPizza] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("probanado data dedee pizzas.json:", pizzasData);
-        setPizzas(pizzasData);
+        setPizza(pizzasData);
       } catch (error) {
         console.error("errror  data de pizzas.json:", error);
       }
@@ -19,10 +18,9 @@ const ApiProvider = ({ children }) => {
     fetchData();
   }, []);
 
-  console.log("pizzas!!!!!:", pizzas); 
 
   return (
-    <ApiContext.Provider value={pizzas}>
+    <ApiContext.Provider value={{pizza, setPizza}}>
       {children}
     </ApiContext.Provider>
   );
