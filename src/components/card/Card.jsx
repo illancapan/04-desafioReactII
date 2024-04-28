@@ -13,7 +13,7 @@ const Card = ({ pizza }) => {
 
   return (
     <>
-      <div className="row">
+      <div className="row mx-auto mt-4 container-fluid">
         {pizza.map((pizza, index) => (
           <div key={index} className="col-md-3">
             <div className="card">

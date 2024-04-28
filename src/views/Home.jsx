@@ -20,10 +20,12 @@ const Home = () => {
     <>
       <NavBar />
       <Banner />
-      <Card pizza={filtrarPizza}/>
-      <Link to={`/carro`} className="btn btn-primary mr-2"> {/* Reemplaza `name` con la variable que contenga el nombre de la pizza */}
-        Ver Más
-      </Link>
+      <div className="container">
+        <Card pizza={filtrarPizza} />
+        <Link to={`/carro`} className="btn btn-primary mr-2">
+          Ver Carro
+        </Link>
+      </div>
     </>
   );
 };

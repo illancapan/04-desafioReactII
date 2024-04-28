@@ -20,7 +20,7 @@ const Pizza = () => {
       <NavBar />
       <Banner />
       <div className="row">
-        <div className="col-md-3">
+        <div className="col">
           <PizzaCard pizza={selectedPizza} />
         </div>
       </div>
